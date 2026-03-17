@@ -46,7 +46,14 @@ When you create a new repo from this template, Vercel can deploy it by pointing 
 
 ## 2. What you still need to provide
 
-These items are **not** part of the template and must be supplied by each user:
+These items are **not** part of the template and must be supplied by each user.  
+
+If you already have **Node.js + npm**, **Git**, and a **Vercel account** set up and working, you can skip ahead to **section 3**.
+
+If you don’t already have them set up, see **section 5** (“Baseline installation instructions”) for step-by-step help:
+- Node.js and npm → section **5.1**
+- Git → section **5.2**
+- Vercel account → section **5.3**
 
 - **Node.js and npm installation**
   - You must have a working Node.js LTS (for example Node 18+ or 20+/24+) installed on your machine.
