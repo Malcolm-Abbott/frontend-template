@@ -8,6 +8,17 @@ This project template is set up to work smoothly with Vercel for deploying React
 - **Section 4** – How to connect that repo to Vercel and deploy.
 - **Section 5** – Baseline install instructions for Node, npm, Git, and Vercel (prerequisites).
 - **Section 6** – A quick end-to-end checklist to confirm you’ve done everything.
+ - **Section 7** – An alternative deployment method using the Vercel CLI (for terminal users).
+
+> **Which terminal/shell can I use?**
+>
+> All the commands in this guide will work from common terminals:
+>
+> - On **Windows**: PowerShell, Command Prompt, or Git Bash
+> - On **macOS**: Terminal (bash/zsh)
+> - On **Linux**: your usual shell (bash, zsh, etc.)
+>
+> If a command fails in one terminal, try closing it and using another (for example, Git Bash on Windows) before troubleshooting further.
 
 ---
 
@@ -180,6 +191,23 @@ You only need to follow the subsections below for tools you **don’t already ha
 
    Both commands should print version numbers (e.g. `v24.14.0`, `11.x.x`).
 
+> **Note for Windows PowerShell users**
+>
+> If you see an error like:
+>
+> `npm : File 'C:\Program Files\nodejs\npm.ps1' cannot be loaded because running scripts is disabled on this system.`
+>
+> this is a PowerShell **execution policy** issue, not a problem with Node itself. You can either:
+>
+> - Run these `node` / `npm` commands from **Git Bash** or **Command Prompt** instead, or
+> - (Advanced) Relax the execution policy for your user by running, in an elevated PowerShell:
+>
+>   ```powershell
+>   Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+>   ```
+>
+> Adjusting the execution policy is a system security setting. If you’re not comfortable changing it, just use Git Bash or Command Prompt for `node` / `npm` instead.
+
 > On macOS or Linux, you can also use a version manager like `nvm`, but the essential requirement is the same: `node` and `npm` must work in your shell.
 
 ### 5.2. Install Git
@@ -199,24 +227,6 @@ You only need to follow the subsections below for tools you **don’t already ha
 1. Visit `https://vercel.com`.
 2. Sign up with **GitHub** (recommended) or another login method.
 3. Authorize Vercel to access your GitHub repositories when prompted.
-
-### 5.4. (Optional) Install the Vercel CLI
-
-The CLI is optional but useful if you like deploying from the terminal.
-
-```bash
-npm install -g vercel
-vercel login
-```
-
-Follow the interactive prompt in your browser to log in. After that you can run:
-
-```bash
-cd /path/to/your/repo/client
-vercel
-```
-
-to deploy directly from the terminal (this is an alternative to the Git-based flow described earlier).
 
 ---
 
@@ -239,4 +249,51 @@ For any new project created from this template:
 6. Click **Deploy** and open the generated URL.
 
 With these steps, this template should be reusable for you (and others) as a straightforward starting point for Vercel-hosted front-end projects.
+
+---
+
+## 7. Alternative: Deploy with the Vercel CLI
+
+The main instructions in this guide use Vercel’s GitHub integration (section 4), where Vercel deploys your app based on what is in your GitHub repository. As an alternative, you can deploy directly from your local machine using the **Vercel CLI**, which deploys whatever is in your local folder at the moment you run it.
+
+### 7.1. One-time setup for the Vercel CLI
+
+On any machine where you want to deploy from the terminal:
+
+```bash
+npm install -g vercel
+vercel login
+```
+
+`vercel login` will open a browser window so you can sign in and link the CLI to your Vercel account.
+
+### 7.2. First-time setup for this project
+
+From your project’s `client/` folder:
+
+```bash
+cd /path/to/your/repo/client
+vercel
+```
+
+The CLI will ask a few questions the first time:
+
+- Which scope (personal or team) to use.
+- Whether to create a new Vercel project or link to an existing one.
+
+Once this is done, that local folder is linked to a Vercel project. Future runs of `vercel` in the same folder usually skip these questions and just build + deploy.
+
+### 7.3. How this differs from the Git-based flow
+
+- **Source of truth**
+  - Git-based flow (section 4): Vercel deploys from **your GitHub repo**.
+  - CLI flow (this section): Vercel deploys from **your local `client/` directory**.
+
+- **Deploy trigger**
+  - Git-based flow: `git push` to the configured branch (for example `main`) triggers a new deploy.
+  - CLI flow: running `vercel` in the project folder triggers a new deploy.
+
+- **When you might prefer each**
+  - Use the Git-based flow (section 4) for normal/team workflows, automatic preview deployments, and a clear history of what is deployed.
+  - Use the CLI flow (this section) if you prefer working from the terminal or want to quickly deploy local changes that are not yet committed or pushed to GitHub.
 
