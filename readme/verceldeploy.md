@@ -1,11 +1,13 @@
 ## Vercel Deployment Guide
 
-This project template is set up to work smoothly with Vercel for deploying React + Vite front-end applications. This document explains:
+This project template is set up to work smoothly with Vercel for deploying React + Vite front-end applications. Use this guide as a **linear walkthrough** from a blank machine to a deployed app. It explains:
 
-- **What this template already provides for Vercel**
-- **What you still need to provide yourself**
-- **Step-by-step deployment instructions**
-- **Baseline install instructions for Node, npm, and Vercel**
+- **Section 1** – What this template already provides for Vercel.
+- **Section 2** – What you still need to provide yourself.
+- **Section 3** – How to create a new project from this template (your own repo).
+- **Section 4** – How to connect that repo to Vercel and deploy.
+- **Section 5** – Baseline install instructions for Node, npm, Git, and Vercel (prerequisites).
+- **Section 6** – A quick end-to-end checklist to confirm you’ve done everything.
 
 ---
 
@@ -42,7 +44,7 @@ These items are **not** part of the template and must be supplied by each user:
     node -v
     npm -v
     ```
-    If both commands print version numbers (and not “command not found” or an error), Node and npm are correctly installed and available. If either command fails, follow the **“4.1. Install Node.js and npm (Windows)”** instructions below (or the equivalent for your OS) before continuing.
+    If both commands print version numbers (and not “command not found” or an error), Node and npm are correctly installed and available. If either command fails, follow the **“5.1. Install Node.js and npm (Windows)”** instructions below (or the equivalent for your OS) before continuing.
 
 - **Your own Vercel account and project settings**
   - A personal (or team) account on Vercel.
@@ -55,13 +57,51 @@ These items are **not** part of the template and must be supplied by each user:
 
 ---
 
-## 3. How to deploy this template on Vercel
+## 3. Create a new project from this template
 
-Follow these steps **after** you have:
-1. Created a GitHub repo from this template.
-2. Pushed your code to GitHub.
+To start a fresh project (for example `GameHub`) using this template:
 
-### 3.1. Prepare the project locally
+1. On GitHub, open the `frontend-template` repository.
+2. Click **“Use this template” → “Create a new repository”**.
+3. Choose a repository name for your new project (e.g. `GameHub`) and create the repo.
+4. On your machine, choose a parent folder for your GitHub projects (for example `C:/Users/<you>/Github`), then in a terminal run:
+
+   ```bash
+   cd C:/Users/<you>/Github
+   git clone https://github.com/<your-username>/<new-repo-name>.git
+   cd <new-repo-name>           # e.g. cd GameHub
+   ```
+
+5. Install dependencies and verify the app runs locally:
+
+   ```bash
+   npm install                  # optional root tooling, if used
+
+   cd client
+   npm install
+   npm run dev
+   ```
+
+After this, you have a standalone project repo (e.g. `GameHub`) that was created from the `frontend-template` and can be used independently.
+
+---
+
+## 4. Deploy this template on Vercel
+
+Before you connect anything to Vercel, make sure your code is actually on GitHub:
+
+1. Create your own GitHub repository using this template (see section 3).
+2. From your local project folder, commit and push your code:
+
+   ```bash
+   git add .
+   git commit -m "Initial commit from template"
+   git push origin main
+   ```
+
+At this point, your code should live in a GitHub repo like `https://github.com/<your-username>/<your-project-name>`. The next steps show how to hook that repo up to Vercel.
+
+### 4.1. Prepare the project locally
 
 In your terminal:
 
@@ -76,14 +116,14 @@ npm run dev                    # optional: confirm it runs locally
 
 If `npm run dev` works and you can open the local URL in a browser (usually `http://localhost:5173`), you are ready to deploy.
 
-### 3.2. Connect GitHub repo to Vercel
+### 4.2. Connect GitHub repo to Vercel
 
 1. Go to `https://vercel.com` and log in.
 2. Click **“Add New…” → “Project”**.
 3. Choose **“Import Git Repository”**.
 4. Select the GitHub repo you created from this template.
 
-### 3.3. Configure Vercel project settings
+### 4.3. Configure Vercel project settings
 
 On the Vercel project setup screen:
 
@@ -108,7 +148,7 @@ On the Vercel project setup screen:
 
 When everything looks correct, click **“Deploy”**.
 
-### 3.4. Verify the deployment
+### 4.4. Verify the deployment
 
 Once the build finishes:
 
@@ -118,11 +158,13 @@ Once the build finishes:
 
 ---
 
-## 4. Baseline installation instructions
+## 5. Baseline installation instructions
 
 This section gives minimal, practical instructions for setting up prerequisites on a fresh machine.
 
-### 4.1. Install Node.js and npm (Windows)
+You only need to follow the subsections below for tools you **don’t already have installed** and working. If `node`, `npm`, `git`, and your Vercel account are already set up (their commands work and you can log in), you can skip to **section 6**.
+
+### 5.1. Install Node.js and npm (Windows)
 
 1. Go to `https://nodejs.org/en`.
 2. Download the **LTS (Long-Term Support)** installer for Windows (64-bit).
@@ -140,7 +182,7 @@ This section gives minimal, practical instructions for setting up prerequisites 
 
 > On macOS or Linux, you can also use a version manager like `nvm`, but the essential requirement is the same: `node` and `npm` must work in your shell.
 
-### 4.2. Install Git
+### 5.2. Install Git
 
 1. Go to `https://git-scm.com/downloads`.
 2. Download and run the installer for your OS.
@@ -152,13 +194,13 @@ This section gives minimal, practical instructions for setting up prerequisites 
 
    You should see a version number.
 
-### 4.3. Set up a Vercel account
+### 5.3. Set up a Vercel account
 
 1. Visit `https://vercel.com`.
 2. Sign up with **GitHub** (recommended) or another login method.
 3. Authorize Vercel to access your GitHub repositories when prompted.
 
-### 4.4. (Optional) Install the Vercel CLI
+### 5.4. (Optional) Install the Vercel CLI
 
 The CLI is optional but useful if you like deploying from the terminal.
 
@@ -178,12 +220,12 @@ to deploy directly from the terminal (this is an alternative to the Git-based fl
 
 ---
 
-## 5. Quick checklist for new users
+## 6. Quick checklist for new users
 
 For any new project created from this template:
 
 1. **Clone the repo from GitHub.**
-2. **Ensure Node.js and npm are installed** (see section 4.1).
+2. **Ensure Node.js and npm are installed** (see section 5.1).
 3. In the repo root:
    - Optionally run `npm install` if you add root tooling.
 4. In `client/`:
