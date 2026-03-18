@@ -10,6 +10,8 @@ This project template is set up to work smoothly with Vercel for deploying React
 - **Section 6** – A quick end-to-end checklist to confirm you’ve done everything.
  - **Section 7** – An alternative deployment method using the Vercel CLI (for terminal users).
 
+> ---
+>
 > **Which terminal/shell can I use?**
 >
 > All the commands in this guide will work from common terminals:
@@ -19,6 +21,32 @@ This project template is set up to work smoothly with Vercel for deploying React
 > - On **Linux**: your usual shell (bash, zsh, etc.)
 >
 > If a command fails in one terminal, try closing it and using another (for example, Git Bash on Windows) before troubleshooting further.
+>
+> ---
+>
+> **Important: don’t type the `<...>` placeholders**
+>
+> In the command examples below, any angle-bracket text like `<you>`, `<your-username>`, `<project-name>`, or `<new-repo-name>` is a placeholder.
+>
+> Replace it with your own value, and do **not** include the `<` or `>` characters.
+>
+> Tip: `<you>` is your Windows username. For example, `C:/Users/<you>/Github` might look like `C:/Users/Sam/Github`.
+>
+> Example (placeholder format you must replace):
+>
+> ```bash
+> cd C:/Users/<you>/Github
+> git clone https://github.com/<your-username>/<new-repo-name>.git
+> cd <new-repo-name>
+> ```
+>
+> Example (this template’s real values):
+>
+> ```bash
+> cd C:/Users/Sam/Github
+> git clone https://github.com/Malcolm-Abbott/frontend-template.git
+> cd frontend-template
+> ```
 
 ---
 

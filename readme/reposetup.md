@@ -12,6 +12,46 @@ It is written assuming:
 - You are comfortable typing commands into a terminal, but you do **not** need to be an expert.
 - You want very explicit, step‑by‑step instructions and sanity checks.
 
+> ---
+>
+> **Which terminal/shell can I use?**
+>
+> All the commands in this guide will work from common terminals:
+>
+> - On **Windows**: PowerShell, Command Prompt, or Git Bash
+> - On **macOS**: Terminal (bash/zsh)
+> - On **Linux**: your usual shell (bash, zsh, etc.)
+>
+> If a command fails in one terminal, try closing it and using another (for example, Git Bash on Windows) before troubleshooting further.
+>
+> ---
+>
+> **Important: don’t type the `<...>` placeholders**
+>
+> In this guide, any angle-bracket text like `<you>`, `<your-username>`, or `<project-name>` is a placeholder.
+>
+> Replace it with your own value, and do **not** include the `<` or `>` characters.
+>
+> Tip: `<you>` is your Windows username. For example, `C:/Users/<you>/Github` might look like `C:/Users/Sam/Github`.
+>
+> Example (placeholder format you must replace):
+>
+> ```bash
+> cd C:/Users/<you>/Github
+> git clone https://github.com/<your-username>/<project-name>.git
+> cd <project-name>
+> ```
+>
+> Example (this template’s real values):
+>
+> ```bash
+> cd C:/Users/Sam/Github
+> git clone https://github.com/Malcolm-Abbott/frontend-template.git
+> cd frontend-template
+> ```
+
+---
+
 ### 0.1 Tooling versions at time of writing
 
 These are the key versions this template was **built and tested with**:
