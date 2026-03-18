@@ -4,28 +4,42 @@ A reusable frontend template using **Vite 7**, **React**, **TypeScript**, and **
 
 ## Quick Start
 
-1. Pick a folder to host your GitHub projects, then clone your repo:
+1. Create your repository from this template on GitHub:
+   - Open the `frontend-template` repo on GitHub.
+   - Click **“Use this template”** → **“Create a new repository”**.
+   - Choose a repository name (example: `GameHub`) and click **Create repository**.
+   - Your repo name is your `<project-name>` (use whatever you chose here).
+2. Pick a folder to host your GitHub projects, then clone your repo:
    - Example parent folder: `C:/Users/<you>/Github`
-   - Open a terminal and `cd` into that parent folder.
-   - Clone your repo (use the repo name you chose on GitHub):
-     - `git clone https://github.com/<your-username>/<project-name>.git`
-     - `cd <project-name>`
-   - Note: `<project-name>` can be anything you want (it’s whatever you named the repo on GitHub).
+   - Open a terminal, then run:
+     ```bash
+     cd C:/Users/<you>/Github
+     git clone https://github.com/<your-username>/<project-name>.git
+     cd <project-name>
+     ```
    - Replace placeholders like `<your-username>` and `<project-name>` with your own values (do not include the `<` or `>` characters).
-2. Create the `client` app (only if needed):
-   - This template includes a `client/` folder already.
-   - If your cloned repo already has `client/`, skip this step.
-   - If you do *not* have `client/`, create it with:
-     - `npm create vite@7 client -- --template react-ts`
-3. Install and run the frontend:
-   - `cd client`
-   - `npm install`
-   - `npm run dev` → open `http://localhost:5173`
-4. Commit and push your changes:
-   - `git add .`
-   - `git commit -m "Initial setup (Vite + React + TS)"`
-   - `git push origin main`
-5. For detailed repo setup and deployment instructions, see:
+3. Create the `client` app (only if needed):
+   - This template normally includes a `client/` folder already.
+   - After cloning, check whether you have a `client/` folder at the repo root:
+     - If it exists, skip this step.
+     - If it is missing (for example, if your repo structure doesn’t include `client/`), create it with:
+     ```bash
+     npm create vite@7 client -- --template react-ts
+     ```
+4. Install and run the frontend:
+   ```bash
+   cd client
+   npm install
+   npm run dev
+   ```
+   Then open `http://localhost:5173` in your browser.
+5. Commit and push your changes:
+   ```bash
+   git add .
+   git commit -m "Initial setup (Vite + React + TS)"
+   git push origin main
+   ```
+6. For detailed repo setup and deployment instructions, see:
    - `readme/reposetup.md`
    - `readme/verceldeploy.md`
 
